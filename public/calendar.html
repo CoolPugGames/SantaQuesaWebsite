@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santa Quesa High School - Calendar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Santa Quesa High School</h1>
+    </header>
+
+    <!-- Include the navigation menu -->
+    <div id="navigation-container"></div>
+
+    <section class="page-title">
+        <!-- Content of the main page goes here -->
+        <h2 id="currentMonth">Calendar</h2>
+    </section>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Sun</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Calendar content will be dynamically generated here -->
+        </tbody>
+    </table>
+
+
+
+    <footer>
+        <p>&copy; 2024 Santa Quesa High School</p>
+    </footer>
+
+
+    <script src="loadNav.js"></script>
+    <script>
+        // JavaScript code for dynamically generating calendar content
+        // You can use a library like moment.js for more advanced date handling
+
+        // Sample event data
+        const events = [
+            { date: '2024-02-14', title: 'Valentine\'s Day' },
+            { date: '2024-02-22', title: 'School Assembly' },
+            // Add more events as needed
+        ];
+
+        function generateCalendar() {
+            const today = new Date();
+            const year = today.getFullYear();
+            const month = today.getMonth();
+
+            const firstDayOfMonth = new Date(year, month, 1);
+            const lastDayOfMonth = new Date(year, month + 1, 0);
+
+            const tableBody = document.querySelector('tbody');
+            tableBody.innerHTML = '';
+
+            let dateIterator = new Date(firstDayOfMonth);
+
+            const currentMonthElement = document.getElementById('currentMonth');
+            const options = { month: 'long', year: 'numeric' };
+            currentMonthElement.textContent = dateIterator.toLocaleDateString('en-US', options);
+
+            while (dateIterator <= lastDayOfMonth) {
+                const row = document.createElement('tr');
+
+                for (let i = 0; i < 7; i++) {
+                    const cell = document.createElement('td');
+
+                    if (dateIterator.getMonth() === month) {
+                        const dateKey = formatDate(dateIterator);
+                        const event = events.find(event => event.date === dateKey);
+                        cell.textContent += dateIterator.getDate();
+
+                        if (event) {
+                            const eventElement = document.createElement('div');
+                            eventElement.textContent = event.title;
+                            cell.appendChild(eventElement);
+                        }
+
+                        
+                    }
+
+                    row.appendChild(cell);
+
+                    dateIterator.setDate(dateIterator.getDate() + 1);
+                }
+
+                tableBody.appendChild(row);
+            }
+        }
+
+        function formatDate(date) {
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const day = String(date.getDate()).padStart(2, '0');
+            return `${year}-${month}-${day}`;
+        }
+
+        generateCalendar();
+    </script>
+
+
+</body>
+</html>

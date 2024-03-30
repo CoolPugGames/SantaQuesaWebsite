@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santa Quesa High School</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Santa Quesa High School</h1>
+    </header>
+
+    <!-- Include the navigation menu -->
+    <div id="navigation-container"></div>
+
+
+    <!-- Navigation Buttons -->
+
+
+    <!-- Content Area -->
+    <div id="contentArea">
+        <p>You've Accessed Our Super Secure Database</p>
+        <div id="db-buttons">
+            <button class="db-button" id="personalInfoButton">Personal Info</button>
+            <button class="db-button" id="classScheduleButton" >Class Schedule</button>
+            <button class="db-button" id="facultyDirectoryButton" >Faculty Directory</button>
+            <button class="db-button" id="studentDirectoryButton" >Student Directory</button>
+            <button class="db-button" id="logoutButton">Logout</button>
+
+        </div>
+        <!-- Content will be dynamically loaded here based on the button clicked -->
+        <div id="dbContent">
+            <ul id="dbList"></ul>
+        </div>
+    </div>
+
+    <section class="page-title">
+        <!-- Content of the main page goes here -->
+        <div id="school-logo">
+            <img src="/assets/graphics/SantaQuesaV2_cut_red.png">
+        </div>
+        
+    </section>
+
+
+
+
+    <footer>
+        <p>&copy; 2024 Santa Quesa High School</p>
+    </footer>
+
+    <script src="/loadNav.js"></script>
+
+    <!-- JavaScript for Button Click Actions -->
+    <script>
+        function showPersonalInfo() {
+            // Replace the alert with the actual content or redirection
+            alert('Displaying Personal Info...');
+        }
+    
+        function showClassSchedule() {
+            // Replace the alert with the actual content or redirection
+            alert('Displaying Class Schedule...');
+        }
+    
+        // function showFacultyDirectory() {
+        //     // Replace the alert with the actual content or redirection
+        //     alert('Displaying Faculty Directory...');
+        //     fetch('/api/employeeData')
+        //         .then(response => response.json())
+        //         .then(data => {
+        //             const employeeList = document.getElementById('dbList');
+        //             data.forEach(employee => {
+        //             const listItem = document.createElement('li');
+        //             listItem.textContent = `${employee.first_name} ${employee.last_name} - ${employee.position}`;
+        //             employeeList.appendChild(listItem);
+        //             });
+        //         })
+        //         .catch(error => console.error('Error fetching data:', error));
+        // }
+
+        function showFacultyDirectory() {
+            // Replace the alert with the actual content or redirection
+            alert('Displaying Faculty Directory...');
+
+        }
+    
+        function showStudentDirectory() {
+            // Replace the alert with the actual content or redirection
+            alert('Displaying Student Directory...');
+        }
+    </script>
+    <script src="mysantaquesa.js"></script>
+
+</body>
+</html>

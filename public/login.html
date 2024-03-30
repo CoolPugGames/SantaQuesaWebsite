@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santa Quesa High School</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Santa Quesa High School</h1>
+    </header>
+
+    <!-- Include the navigation menu -->
+    <div id="navigation-container"></div>
+
+    <section class="page-title">
+        <!-- Content of the main page goes here -->
+        <h2>Login</h2>
+    </section>
+
+    <div class="login-container">
+        <h2>Santa Quesa High School</h2>
+        <!-- <form class="login-form" onsubmit="attemptLogin(event)"> -->
+        <form class="login-form" id="login-form">
+
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <button type="submit" onclick="authenticateUser()">Login</button>
+            </div>
+        </form>
+    </div>
+
+
+
+
+
+    <footer>
+        <p>&copy; 2024 Santa Quesa High School</p>
+    </footer>
+    <script src="loadNav.js"></script>
+    <!-- <script>
+        function attemptLogin(event) {
+            event.preventDefault();
+    
+            // Replace this with your server-side authentication logic
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+    
+            // Simulate a successful login
+            if (username === 'ken' && password === 'justken') {
+                alert('Login successful! Redirecting...');
+                // Redirect to another page or perform further actions
+                window.location.href = 'mysantaquesa.html';
+            } else {
+                alert('Invalid credentials. Please try again.');
+            }
+        }
+    </script> -->
+    <script src="login.js"></script>
+
+</body>
+</html>

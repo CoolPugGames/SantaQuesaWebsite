@@ -1,0 +1,297 @@
+/* style.css */
+/* 
+font-family: 'Bebas Neue', sans-serif;
+font-family: 'IBM Plex Sans', sans-serif;
+font-family: 'Merriweather', serif;
+font-family: 'Work Sans', sans-serif; */
+
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Titillium+Web:ital,wght@0,200;0,300;0,600;1,200&family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&display=swap");
+
+
+/* CSS HEX */
+
+
+/* CSS HSL */
+/* --maize: hsla(52, 100%, 65%, 1);
+--electric-blue: hsla(188, 83%, 67%, 1);
+--tiffany-blue: hsla(167, 43%, 76%, 1);
+--pumpkin: hsla(25, 100%, 49%, 1);
+--english-violet: hsla(303, 16%, 25%, 1); */
+
+body {
+    --maize: #fdca54;
+    --maize-light: #fee36e;
+    --maize-pale: #fdf1b8;
+    --electric-blue: #65def1ff;
+    --tiffany-blue: #a8dcd1ff;
+    --pumpkin-light: #f7b42f;
+    --pumpkin: #f96900ff;
+    --pumpkin-dark: hwb(25 4% 14%);
+    --pumpkin-shadow: rgb(104, 52, 15);
+    --english-violet: #493548ff;
+    --english-violet-darker:rgb(49, 38, 49);
+    --champagne: #f9e3c8ff;
+    --ecru: #e6be78ff;
+    --fire-brick: #ef3d2f;
+    --fire-brick-dark: #992224;
+    --fire-brick-shadow: #592323;
+    --columbia-blue: #c8def9ff;
+    --azure: #237be7ff;
+    --azure-dark: rgb(24, 64, 112);
+    font-family: 'Merriweather', serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--maize-light); /* Set your desired background color */
+    color: var(--fire-brick); /* Set your desired text color */
+}
+
+h2 {
+    color: var(--fire-brick-dark);
+    text-transform: uppercase;
+}
+
+header {
+    background-color: var(--fire-brick); /* Set your desired header background color */
+    padding: 10px;
+    text-align: center;
+    position: relative;
+    color: var(--maize-light);
+}
+
+nav {
+    background-color: var(--fire-brick); /* Set your desired navigation background color */
+    padding: 10px;
+    text-align: center;
+    position: relative;
+    margin: 0;
+    transition: top 0.3s; /* Add smooth transition effect */
+}
+
+.nav-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    z-index: 1000; /* Adjust the z-index as needed to ensure it appears above other elements */
+}
+
+nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: var(--maize); /* Set your desired link color */
+    padding: 4px 10px;
+}
+
+nav a:hover {
+    background-color: var(--pumpkin);
+}
+
+section {
+    padding: 10px;
+    text-align: center;
+    margin: 0;
+    margin-left: 10%;
+    margin-right: 10%;
+
+}
+
+#contentArea {
+    text-align: center;
+    padding: 10px;
+    margin: auto;
+}
+
+footer {
+    background-color: var(--fire-brick); /* Set your desired footer background color */
+    padding: 10px;
+    text-align: center;
+    color: var(--maize);
+}
+
+.login-button {
+    background-color: #f90; /* Set your desired login button background color */
+    color: #333; /* Set your desired login button text color */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-button:hover {
+    background-color: #ffcc00; /* Set your desired hover background color */
+}
+
+/* Style for the iframe */
+iframe {
+    width: 100%;
+    height: 100px; 
+    border: none;
+}
+.directory-div {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+
+
+.directory-div h2 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 2em;
+    color: var(--fire-brick-shadow); /* Adjust the color as needed */
+    text-transform: uppercase;
+}
+.directory-category {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px; /* Adjust the gap between elements as needed */
+    background-color: var(--maize);
+    margin: 10px;
+    padding: 20px;
+    color: var(--fire-brick-dark);
+    justify-content: center;
+}
+
+
+.employee-card {
+    text-align: center;
+    width: 100%;
+}
+
+.employee-card h3 {
+    margin-bottom: 5px;
+    padding-bottom: 0px;
+}
+
+.employee-card p {
+    margin-top: 0px;
+    font-style: italic;
+}
+
+.employee-card img {
+    max-width: 200px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+article {
+    margin: 20px auto;
+    max-width: 500px;
+    text-align: center;
+    padding: 20px;
+    padding-bottom: 20px;
+    background-color: var(--azure-dark);
+    color: var(--maize-light);
+
+}
+
+article h1{
+    color: var(--maize);
+}
+
+#school-logo {
+    width: 80%;
+    margin: auto;
+    margin-top: 20px;
+    padding: 20px;
+    /* background-color: var(--fire-brick-dark); */
+}
+
+#school-logo img{
+    width: 80%;
+    padding: 20px;
+}
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    color:var(--fire-brick-dark);
+    background-color: var(--maize-pale);
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid var(--pumpkin-light);
+}
+
+th {
+    background-color: var(--maize);
+}
+
+td {
+    height: 80px;
+    width: 12%;
+}
+
+/* forms  */
+
+.login-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.login-container h2 {
+    color: #333;
+}
+
+.login-form {
+    margin-top: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-group button {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+#db-buttons {
+    justify-content: center;
+    width: fit-content;
+    margin:auto;
+    margin-bottom: 20px;
+}
+
+.db-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+
+/* Add hover effect */
+button:hover {
+    background-color: #45a049;
+}
