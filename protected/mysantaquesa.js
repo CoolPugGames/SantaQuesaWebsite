@@ -1,14 +1,20 @@
+
 // mysantaquesa.js
 
 
 document.getElementById('personalInfoButton').addEventListener('click', function() {
     // Call the fetchDataFromServer function when the button is clicked
-    fetchDataFromServer('Student_Grades');
+    fetchDataFromServer('Employee_Data');
   });
 
 document.getElementById('classScheduleButton').addEventListener('click', function() {
     // Call the fetchDataFromServer function when the button is clicked
     fetchDataFromServer('Class_Rosters');
+  });
+
+document.getElementById('classRosterButton').addEventListener('click', function() {
+    // Call the fetchDataFromServer function when the button is clicked
+    fetchDataFromServer('Student_Grades');
   });
 
 document.getElementById('facultyDirectoryButton').addEventListener('click', function() {
@@ -116,3 +122,59 @@ async function fetchDataFromServer(tableName) {
     }
   }
   
+// Assume the userRole variable contains the user's role (e.g., 'teacher', 'student', 'admin')
+let userRole = 'none'; // This value should come from the server-side response
+
+// Function to show or hide buttons based on the user's role
+function updateButtonVisibility(role) {
+  console.log('updating buttons for ',role)
+  // Get references to buttons or elements you want to show or hide
+  const personalInfoButton = document.getElementById('personalInfoButton');
+  const classRosterButton = document.getElementById('classRosterButton');
+  const classScheduleButton = document.getElementById('classScheduleButton');
+  const studentDirectoryButton = document.getElementById('studentDirectoryButton');
+  const facultyDirectoryButton = document.getElementById('facultyDirectoryButton');
+  
+  // Check the user's role and show or hide buttons accordingly
+  if (role === 'Teacher') {
+    personalInfoButton.style.display = 'inline-block'; // Show the button
+    classRosterButton.style.display = 'inline-block'; // Show the button
+    facultyDirectoryButton.style.display = 'inline-block'; // Show the button
+    classScheduleButton.style.display = 'none'; // Hide the button
+    studentDirectoryButton.style.display = 'none'; // Hide the button
+  } else if (role === 'Student') {
+    personalInfoButton.style.display = 'inline-block'; // Hide the button
+    classRosterButton.style.display = 'none'; // Show the button
+    classScheduleButton.style.display = 'inline-block'; // Show the button
+    facultyDirectoryButton.style.display = 'inline-block'; // Hide the button
+    studentDirectoryButton.style.display = 'inline-block'; // Hide the button
+  } else if (role === 'Admin') {
+    personalInfoButton.style.display = 'inline-block'; // Hide the button
+    classRosterButton.style.display = 'inline-block'; // Show the button
+    classScheduleButton.style.display = 'inline-block'; // Show the button
+    facultyDirectoryButton.style.display = 'inline-block'; // Hide the button
+    studentDirectoryButton.style.display = 'inline-block'; // Hide the button
+  }
+}
+
+// Call the function to update button visibility when the page loads or after login
+
+
+window.addEventListener('load', () => {
+  // Fetch user's role from the server
+  fetch('/session')
+      .then(response => response.json())
+      .then(data => {
+          // Extract user's role from the response
+          userRole = data.role;
+          console.log('User role:', userRole);
+          updateButtonVisibility(userRole);
+          // Use userRole as needed in your client-side code
+          // For example, show or hide certain elements based on the role
+      })
+      .catch(error => {
+          console.error('Error fetching user role:', error);
+      });
+  
+});
+

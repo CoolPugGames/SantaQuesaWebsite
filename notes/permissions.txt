@@ -1,0 +1,87 @@
+Student:
+    Personal Info: 
+        Name: Read
+        StudentID: Read
+        Email: Read
+        Phone: Read, Write
+        Address: Read, Write
+    Class Schedule:
+        List each class and grade: Read
+    Faculty Directory:
+        Not Visible
+    Student Directory:
+        Can view other students names and emails, sorted by Last Name
+
+Faculty:
+    Personal Info: 
+        Name: Read
+        FacultyID: Read
+        Email: Read
+        Room#: Read
+        Phone: Read, Write
+        Address: Read, Write
+    Class Roster:
+        Name of class: Read
+        Each student in the class
+            Name, StudentID, Email: read only
+            current grade: read, write
+    Faculty Directory:
+        Name, Email, Room: Read only
+
+If a user logs in with "Teacher" role permissions, I want the following to happen:
+    - Diplay buttons: Personal Info, Class Roster, Faculty Directory, Logout
+    - When one of the buttons is clicked, it should access one or more tables in the database, and then populate the 'dbList' element on the webpage with specific data from the corresponding tables.
+    - When click on Personal Info button:
+        - fetchDataFromServer('Employee_Data')
+        - Display the following fields in the table, and only for the row that matches the EmployeeID of the current user:
+            Name (FirstName + ' ' + LastName)
+            EmployeeID
+            Email
+            Room
+            Phone
+            Address
+        - Below the table, there should be a button that says "Edit". When clicked, the user should be allowed to 
+        edit their Phone and Address, but not the other fields. There should then be a "Save" button. When clicked, it will
+        save the new data to the database.
+    - When click on Class Roster button:
+        -check the Employee_Data table of the database to find the ClassCode for the currently logged in teacher. 
+        -fetchDataFromServer('Class_Rosters'), find the row that matches the ClassCode
+        -Each row contains the ClassCode, the Subject of that class, and the StudentID of all the students enrolled in that class.
+        -Display the Subject on the webpage.
+        -For each StudentID in the list of Students, find that student in the Student_Data table and list the following:
+            Name (FirstName + ' ' + LastName), StudentID, Email, current grade
+            To find the current grade, look in the columns labelled Class1,Class2,Class3,Class4 to see which one has the correct ClassCode. Then the grade for that class will be found in the column labelled Grade#, with # being the same number as the Class# column.
+            Teachers have write access to the current grade, so include an 'edit' button next to the grade. If they click the edit button, allow the grade to be changed, and change the edit button to a 'save' button, which will then save the new grade into the database.
+    - When click on "Faculty Directory" button:
+        - fetchDataFromServer('Employee_Data')
+        - display the following info for each row in the table:
+            Name, Email, Room, Class Subject
+            To find the Class Subject, take the ClassCode in the Employee_Data table, and find the corresponding ClassCode in the Class_Rosters table. It will have a column labeled "Subject" with the name of the class.
+
+            
+        -
+
+
+
+Admin:
+    Personal Info: 
+        Name: Read
+        FacultyID: Read
+        Email: Read
+        Room#: Read
+        Phone: Read, Write
+        Address: Read, Write
+
+    Faculty Directory:
+        Name, Email, EmployeeID, Phone, Address: Read only
+        ClassCode: OnClick => Go to roster for the class.
+    Class Roster:
+        Name of class: Read
+        Each student in the class
+            Name, StudentID, Email: read only
+            current grade: read
+    Student Directory:
+        read/write all info in student Directory
+        studentID OnClick => Go to that student's Schedule
+    Student Schedule
+        read only

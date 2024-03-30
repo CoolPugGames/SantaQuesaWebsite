@@ -148,12 +148,18 @@ app.post('/login', async (req, res) => {
         console.log(row.UserID, ' :: ', roleRow.Role)
         req.session.authenticated = true;
         req.session.role = roleRow.Role; // Assuming role is stored in the 'Role' column
+        req.session.UserID = row.UserID;
         res.json({ message: 'Login successful', ok: true });
       });
     } else {
       res.status(401).json({ error: 'Invalid username or password', ok: false });
     }
   });
+});
+
+// Example of exposing an endpoint to fetch session data
+app.get('/session', (req, res) => {
+  res.json({ role: req.session.role }); // Send session data to client
 });
 
 app.get('/protected/mysantaquesa.html', isAuthenticated, (req, res) => {
