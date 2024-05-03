@@ -203,6 +203,10 @@ article h1{
     width: 80%;
     padding: 20px;
 }
+#school-logo-small img{
+    width: 10%;
+    padding:10px;
+}
 
 table {
     width: 80%;
@@ -213,7 +217,7 @@ table {
 }
 
 th, td {
-    padding: 10px;
+    padding: 4px 10px;
     border: 1px solid var(--pumpkin-light);
 }
 
@@ -222,8 +226,8 @@ th {
 }
 
 td {
-    height: 80px;
-    width: 12%;
+    height: 30px;
+    width: 10%;
 }
 
 /* forms  */

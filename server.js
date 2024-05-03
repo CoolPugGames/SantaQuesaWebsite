@@ -43,12 +43,6 @@ const validUsername = 'les';
 const validPassword = 'claypool';
 
 
-// // Hash a password
-// const hashedPassword = await bcrypt.hash('user_password', saltRounds);
-
-// // Compare hashed password with user input during login
-// const match = await bcrypt.compare('user_input_password', hashedPassword);
-
 
 // SQLite database setup
 const db = new sqlite3.Database('./database/SQdata.db', (err) => {
@@ -60,58 +54,6 @@ const db = new sqlite3.Database('./database/SQdata.db', (err) => {
   });
 
 
-
-// app.post('/login', async (req, res) => {
-//   const { username, password } = req.body;
-
-//   // Retrieve hashed password from the database based on the entered username
-//   const query = 'SELECT Password FROM User_Passwords WHERE Username = ?';
-//   db.get(query, [username], async (err, row) => {
-//     if (err) {
-//       return res.status(500).json({ error: 'Database error' });
-//     }
-
-//     if (!row) {
-//       return res.status(401).json({ error: 'User does not exist' });
-//     }
-
-//     // Compare hashed password with the entered password
-//     const match = (password == row.Password);
-//     // console.log(`password = ${row.Password}`);
-
-//     if (match) {
-//       console.log(row.UserID, ' :: ', password)
-//       // Step 2: Fetch the user's role using the obtained UserID
-//       const roleQuery = 'SELECT Role FROM User_Roles WHERE UserID = ?';
-//       db.get(roleQuery, [row.UserID], async (roleErr, roleRow) => {
-//         if (roleErr) {
-//           return res.status(500).json({ error: 'Database error' });
-//         }
-
-//         if (!roleRow) {
-//           return res.status(401).json({ error: 'User role not found' });
-//         }
-
-//         // Step 3: Store the user's role in the session or response payload
-//         req.session.authenticated = true;
-//         req.session.role = roleRow.Role; // Assuming role is stored in the 'Role' column
-//         console.log(row.UserID, ' :: ', roleRow.Role)
-//         res.json({ message: 'Login successful', ok: true });
-//       });
-//     } else {
-//       res.status(401).json({ error: 'Invalid username or password', ok:false});
-//     }
-
-//     // // Compare hashed password with the entered password
-//     // const match = await bcrypt.compare(password, row.Password);
-
-//     // if (match) {
-//     //   res.json({ message: 'Login successful' });
-//     // } else {
-//     //   res.status(401).json({ error: 'Invalid username or password' });
-//     // }
-//   });
-// });
 
 app.post('/login', async (req, res) => {
   const { username, password } = req.body;
@@ -252,13 +194,15 @@ app.get('/api/columns', (req, res) => {
   // Endpoint to handle data requests
 app.get('/api/data', (req, res) => {
     const tableName = req.query.table;
+    const columnList = req.query.columnList;
   
     if (!tableName) {
       return res.status(400).json({ error: 'Table name not provided.' });
     }
   
     // Query the database based on the provided table name
-    const query = `SELECT * FROM ${tableName}`;
+    // const query = `SELECT * FROM ${tableName}`;
+    const query = `SELECT ${columnList} FROM ${tableName}`;
   
     db.all(query, [], (err, rows) => {
       if (err) {
@@ -326,9 +270,35 @@ app.get('/api/dataRows', (req, res) => {
     });
   });
 
+app.get('/api/gradeList', (req, res) => {
+  const userID = req.query.userID;
+  const query = `SELECT FirstName, LastName, ClassesAndGrades FROM Student_Data WHERE StudentID = ?`;
+  db.get(query, [userID], (err, row) => {
+    if (err) {
+      console.error('Error executing grade list query:', err.message);
+      return res.status(500).json({ error: 'Internal server error.'});
+    }
+    res.json(row);
+  })
+})
+
+app.get('/api/subjectFromClassCode', (req, res) => {
+  const classCode = req.query.classCode;
+  console.log('Accessing ClassCode: ',classCode);
+  const query = 'SELECT FirstName, LastName, Subject FROM Employee_Data WHERE ClassCode = ? ';
+  db.get(query, [classCode], (err, row) => {
+    if (err) {
+      console.error('Error executing classCode query:', err.message);
+      return res.status(500).json({ error: 'Internal server error.'});
+    }
+    res.json(row);
+  }) 
+});
+
 app.get('/api/classCode', (req, res) => {
     const userID = req.query.userID;
-    const query = 'SELECT ClassCode, Subject FROM Employee_Data WHERE EmployeeID = ? ';
+    
+    const query = 'SELECT LastName, ClassCode, Subject FROM Employee_Data WHERE EmployeeID = ? ';
     db.get(query, [userID], (err, row) => {
       if (err) {
         console.error('Error executing query:', err.message);
