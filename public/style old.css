@@ -15,67 +15,56 @@ font-family: 'Work Sans', sans-serif; */
 /* --maize: hsla(52, 100%, 65%, 1);
 --electric-blue: hsla(188, 83%, 67%, 1);
 --tiffany-blue: hsla(167, 43%, 76%, 1);
---maize: hsla(25, 100%, 49%, 1);
+--pumpkin: hsla(25, 100%, 49%, 1);
 --english-violet: hsla(303, 16%, 25%, 1); */
 
 body {
-    --maize: #EFB11D;
-    --maize-light: #f0c45d;
-    --maize-pale: #f4e1b7;
-    --rose: #FFA2B6;
-    --cerise-pink: #D6536D;
-    --cinnabar: #E43D12;
-    --cinnabar-dark: #c0320f;
-    --cinnabar-shadow: #621a08;
-    --xanthous: #EFB11D;
-    --alabaster: #EBE9E1;
-
-    font-family: 'Work Sans', sans-serif;
+    --maize: #fdca54;
+    --maize-light: #fee36e;
+    --maize-pale: #fdf1b8;
+    --electric-blue: #65def1ff;
+    --tiffany-blue: #a8dcd1ff;
+    --pumpkin-light: #f7b42f;
+    --pumpkin: #f96900ff;
+    --pumpkin-dark: hwb(25 4% 14%);
+    --pumpkin-shadow: rgb(104, 52, 15);
+    --english-violet: #493548ff;
+    --english-violet-darker:rgb(49, 38, 49);
+    --champagne: #f9e3c8ff;
+    --ecru: #e6be78ff;
+    --fire-brick: #ef3d2f;
+    --fire-brick-dark: #992224;
+    --fire-brick-shadow: #592323;
+    --columbia-blue: #c8def9ff;
+    --azure: #237be7ff;
+    --azure-dark: rgb(24, 64, 112);
+    font-family: 'Merriweather', serif;
     margin: 0;
     padding: 0;
-    background-color: var(--alabaster); /* Set your desired background color */
-    color: var(--cinnabar); /* Set your desired text color */
-}
-
-h1 {
-    margin: 6px auto;
-    text-transform: uppercase;
+    background-color: var(--maize-light); /* Set your desired background color */
+    color: var(--fire-brick); /* Set your desired text color */
 }
 
 h2 {
-    font-family: 'work sans';
-    font-weight: lighter;
+    color: var(--fire-brick-dark);
     text-transform: uppercase;
-    font-size: 2em;
 }
-
-h3{
-    font-size: calc(1rem + .3vw);
-}
-
-.content {
-    padding-top: 7rem;
-}
-
 
 header {
-    background-color: var(--alabaster);
+    background-color: var(--fire-brick); /* Set your desired header background color */
     padding: 10px;
     text-align: center;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1000;
+    position: relative;
+    color: var(--maize-light);
 }
 
 nav {
-    /* padding: 10px; */
+    background-color: var(--fire-brick); /* Set your desired navigation background color */
+    padding: 10px;
     text-align: center;
     position: relative;
     margin: 0;
     transition: top 0.3s; /* Add smooth transition effect */
-    font-family: 'Work Sans';
 }
 
 .nav-fixed {
@@ -88,50 +77,23 @@ nav {
 }
 
 nav a {
-    /* margin: 0 10px; */
+    margin: 0 10px;
     text-decoration: none;
-    color: var(--cinnabar); /* Set your desired link color */
-    text-transform: uppercase;
+    color: var(--maize); /* Set your desired link color */
     padding: 4px 10px;
 }
 
 nav a:hover {
-    background-color: var(--maize-light);
+    background-color: var(--pumpkin);
 }
-
-.navbar {
-    background-color: var(--alabaster);
-    color: var(--cinnabar);
-    padding: 0px;
-}
-.navbar-dark .navbar-nav .nav-link{
-    color: var(--cinnabar);
-}
-
-.navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hover {
-    color: var(--cinnabar-shadow);
-}
-
-.navbar-nav{
-    margin: auto;
-}
-
-.nav-item{
-    width: max-content;
-}
-
-.navbar-nav .nav-link {
-
-    padding: .2rem .5rem;
-}
-
-
 
 section {
-    /* padding: 10px; */
+    padding: 10px;
     text-align: center;
-    margin: auto;
-    width: 80%;
+    margin: 0;
+    margin-left: 10%;
+    margin-right: 10%;
+
 }
 
 #contentArea {
@@ -140,15 +102,11 @@ section {
     margin: auto;
 }
 
-#secure-database{
-    color: var(--maize-light);
-}
-
 footer {
-    background-color: var(--rose); /* Set your desired footer background color */
+    background-color: var(--fire-brick); /* Set your desired footer background color */
     padding: 10px;
     text-align: center;
-    color: var(--alabaster);
+    color: var(--maize);
 }
 
 .login-button {
@@ -171,25 +129,27 @@ iframe {
     border: none;
 }
 .directory-div {
-    margin-bottom: 0px;
-    padding-bottom: 0px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
 }
 
 
 .directory-div h2 {
     margin-top: 20px;
-    margin-bottom: 0px;
+    margin-bottom: 10px;
     text-align: center;
-    font-size: 1.7em;
+    font-size: 2em;
+    color: var(--fire-brick-shadow); /* Adjust the color as needed */
     text-transform: uppercase;
 }
 .directory-category {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px; /* Adjust the gap between elements as needed */
-    /* background-color: var(--maize); */
+    background-color: var(--maize);
     margin: 10px;
-    color: var(--cerise-pink);
+    padding: 20px;
+    color: var(--fire-brick-dark);
     justify-content: center;
 }
 
@@ -197,23 +157,20 @@ iframe {
 .employee-card {
     text-align: center;
     width: 100%;
-    max-width: 200px;
-    margin: 0 auto;
 }
 
 .employee-card h3 {
-    padding: 5px;
+    margin-bottom: 5px;
+    padding-bottom: 0px;
 }
 
 .employee-card p {
     margin-top: 0px;
     font-style: italic;
-    font-family: 'Merriweather', serif;
-    font-size: calc(.7rem + .3vw);
 }
 
 .employee-card img {
-    width:100%;
+    max-width: 200px;
     height: auto;
     display: block;
     margin: 0 auto;
@@ -225,8 +182,8 @@ article {
     text-align: center;
     padding: 20px;
     padding-bottom: 20px;
-    background-color: var(--cinnabar-shadow);
-    color: var(--rose);
+    background-color: var(--azure-dark);
+    color: var(--maize-light);
 
 }
 
@@ -234,12 +191,12 @@ article h1{
     color: var(--maize);
 }
 
-#school-logo, #school-logo-small {
-    width: 100%;
-    margin: 10px auto;
-
-
-    /* background-color: var(--cerise-pink); */
+#school-logo {
+    width: 80%;
+    margin: auto;
+    margin-top: 20px;
+    padding: 20px;
+    /* background-color: var(--fire-brick-dark); */
 }
 
 #school-logo img{
@@ -247,24 +204,21 @@ article h1{
     padding: 20px;
 }
 #school-logo-small img{
-    width: 20%;
-    max-width: 200px;
+    width: 10%;
     padding:10px;
-    display: block;
-    margin: auto;
 }
 
 table {
     width: 80%;
     margin: 20px auto;
     border-collapse: collapse;
-    color:var(--cinnabar-dark);
+    color:var(--fire-brick-dark);
     background-color: var(--maize-pale);
 }
 
 th, td {
     padding: 4px 10px;
-    border: 1px solid var(--maize-light);
+    border: 1px solid var(--pumpkin-light);
 }
 
 th {
@@ -279,7 +233,7 @@ td {
 /* forms  */
 
 .login-container {
-    background-color: var(--rose);
+    background-color: #fff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -305,7 +259,6 @@ td {
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
-    text-transform: uppercase;
 }
 
 .form-group input {
@@ -332,8 +285,8 @@ td {
 }
 
 .db-button {
-    background-color: var(--cerise-pink);
-    color: var(--alabaster);
+    background-color: #4CAF50;
+    color: white;
     padding: 10px 20px;
     margin: 5px;
     font-size: 16px;
@@ -344,53 +297,5 @@ td {
 
 /* Add hover effect */
 button:hover {
-    background-color: var(--maize);
-}
-
-@media screen and (max-width: 800px) {
-    .directory-category {
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    }
-}
-
-@media screen and (max-width: 576px) {
-    .directory-category {
-        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-    }
-    .employee-card {
-        font-size: small;
-    }
-
-
-    #schoolTitle {
-        position: fixed;
-        z-index: 2000;
-        left: 20px;
-    }
-
-    #schoolTitle h1 {
-        font-size: 1em;
-    }
-
-    h2{
-        font-size: calc(1em + .7vw);
-    }
-
-    .directory-div h2{
-        font-size: calc(1em + .6vw);
-    }
-
-    .content {
-        padding-top: 4rem;
-    }
-    .navbar-nav .nav-link{
-        padding: 1rem .5rem;
-    }
-        
-}
-
-@media (min-width: 576px) {
-    .container, .container-sm {
-        max-width: 100%;
-    }
+    background-color: #45a049;
 }

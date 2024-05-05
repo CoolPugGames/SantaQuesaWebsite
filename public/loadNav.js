@@ -1,5 +1,7 @@
 // loadNav.js
 
+// const { response } = require("express");
+
 document.addEventListener('DOMContentLoaded', function () {
     // Fetch and insert the navigation content
     fetch('/nav.html')
@@ -8,18 +10,24 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('navigation-container').innerHTML = html;
         })
         .catch(error => console.error('Error fetching navigation:', error));
+
 });
 
 
-window.onscroll = function() { scrollFunction(); };
 
-function scrollFunction() {
-    var nav = document.getElementById("mainNav");
 
-    if (document.body.scrollTop > 90 || document.documentElement.scrollTop > 90) {
-        nav.classList.add("nav-fixed");
-    } else {
-        nav.classList.remove("nav-fixed");
-    }
-}
+
+
+
+// window.onscroll = function() { scrollFunction(); };
+
+// function scrollFunction() {
+//     var nav = document.getElementById("mainNav");
+
+//     if (document.body.scrollTop > 90 || document.documentElement.scrollTop > 90) {
+//         nav.classList.add("nav-fixed");
+//     } else {
+//         nav.classList.remove("nav-fixed");
+//     }
+// }
 

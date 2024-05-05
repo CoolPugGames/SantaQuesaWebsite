@@ -18,13 +18,7 @@ const app = express();
 const port = 3000;
 const saltRounds = 10;
 
-// Middleware to check authentication
-const isAuthenticated = (req, res, next) => {
-  if (req.session && req.session.authenticated) {
-    return next();
-  }
-  res.redirect('/login.html'); // Redirect to login page if not authenticated
-};
+
 
 
 app.use(session({
@@ -35,9 +29,19 @@ app.use(session({
 
 app.use(express.json());
 
-app.use(express.static(publicFolderPath));
+// Middleware to check authentication
+const isAuthenticated = (req, res, next) => {
+  if (req.session && req.session.authenticated) {
+    return next();
+  }
+  res.redirect('/login.html'); // Redirect to login page if not authenticated
+};
+
+
 
 app.use('/protected', isAuthenticated, express.static(protectedFolderPath));
+
+app.use(express.static(publicFolderPath));
 
 const validUsername = 'les';
 const validPassword = 'claypool';

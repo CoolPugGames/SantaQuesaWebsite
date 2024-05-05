@@ -1,0 +1,7 @@
+{
+    "editor.suggest.showFunctions": true,
+    "editor.quickSuggestions": {
+        "other": "inline"
+    },
+    "editor.suggestOnTriggerCharacters": true
+}

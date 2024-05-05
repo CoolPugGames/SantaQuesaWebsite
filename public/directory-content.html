@@ -1,16 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Santa Quesa High School</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <div id="navigation-container"></div>
-    </header>
-    <script src="loadNav.js"></script>
+<!-- directory-content.html -->
     <section class="page-title">
         <!-- Content of the main page goes here -->
         <h2>Faculty / Staff Directory</h2>
@@ -377,9 +366,9 @@
 
     </section>
 
-    <footer>
+    <!-- <footer>
         <p>&copy; 2024 Santa Quesa High School</p>
-    </footer>
+    </footer> -->
 
     <script>
         // Adjust grid column settings based on the number of items
@@ -390,13 +379,10 @@
             grids.forEach(grid => {
                 const items = grid.querySelectorAll('.employee-card');
         
-                if (items.length <= 5) {
+                if (items.length <= 3) {
                     grid.style.gridTemplateColumns = `repeat(${items.length}, minmax(200px, 1fr))`;
                 }
             })
         })
 
     </script>
-
-</body>
-</html>
