@@ -44,7 +44,7 @@ h1 {
 
 h2 {
     font-family: 'work sans';
-    font-weight: lighter;
+    font-weight: 200;
     text-transform: uppercase;
     font-size: 2em;
 }
@@ -132,6 +132,13 @@ section {
     text-align: center;
     margin: auto;
     width: 80%;
+
+}
+
+.page-title{
+    border-bottom: 1px solid;
+    border-color: var(--cinnabar-dark);
+    margin-bottom: 10px;
 }
 
 #contentArea {
@@ -374,6 +381,8 @@ button:hover {
 
     h2{
         font-size: calc(1em + .7vw);
+        font-weight: 300;
+        color: var(--cinnabar-dark);
     }
 
     .directory-div h2{
