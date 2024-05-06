@@ -490,18 +490,3 @@ window.addEventListener('load', () => {
   
 });
 
-
-
-Object = {
-  Address: "9333 Redwood Street, Santa Quesa, UT 89098",
-  ClassCode: "318086",
-  Email: "marquessa.barbee@santaquesa.edu",
-  EmployeeID: "DGUZW3GF",
-  FirstName: "Marquessa",
-  LastName: "Barbee",
-  PermissionType: "Teacher",
-  Phone: "801-144-7993",
-  Room: "A22",
-  Subject: "Painting"
-}
-
