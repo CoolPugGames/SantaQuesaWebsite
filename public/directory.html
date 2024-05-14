@@ -16,15 +16,56 @@
     <script src="loadNav.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function (){
+            console.log('Fetching directory content');
             fetch('/directory-content.html')
                 .then(response => response.text())
                 .then(html => {
                     document.getElementById('directory-content').innerHTML = html;
+                    console.log('directory fetched');
+                    const directoryBuilt = new CustomEvent('scriptFinished');
+                    window.dispatchEvent(directoryBuilt);
                 })
                 .catch(error => console.error('Error fetching index page:', error));
 
+
         });
+
+        // window.addEventListener('scriptFinished', () => {
+        //     console.log('Adjusting Grid Column Width');
+
+        //     const directoryDivs = document.querySelectorAll('.directory-div');
+        //     console.log('got directory divs');
+        //     console.log('number of divs: ',directoryDivs.length);
+
+        //     directoryDivs.forEach(directoryDiv => {
+        //         const grids = directoryDiv.querySelectorAll('.directory-category');
+        //         console.log('got grids in directory div');
+
+        //         grids.forEach(grid => {
+        //             console.log('new grid');
+        //             const items = grid.querySelectorAll('.employee-card');
+        //             const itemNum = items.length
+        //             console.log('item count: ',itemNum)
+        //             const gridItemWidth = grid.querySelector('.employee-card').offsetWidth;
+        //             console.log('gridItemWidth: ',gridItemWidth);
+        //             const gridContainerWidth = grid.offsetWidth;
+        //             const numColumns = Math.floor(gridContainerWidth / gridItemWidth);
+        //             console.log('numColumns:',numColumns, ' = ', gridContainerWidth, ' / ',gridItemWidth)
+
+        //             // Calculate the padding based on the number of columns
+        //             const padding = itemNum < 3 ? Math.abs(itemNum - 3) * Math.floor(gridItemWidth/2) : 0;
+        //             console.log('Column padding: ', padding);
+
+        //             // Set the CSS variable for padding for each grid
+        //             grid.style.setProperty('padding', `0 ${padding}px`);
+        //         });
+        //     });
+        // });
+
+          
+
     </script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+   
 </body>
 </html>

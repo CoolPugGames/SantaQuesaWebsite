@@ -29,6 +29,7 @@ body {
     --cinnabar-shadow: #621a08;
     --xanthous: #EFB11D;
     --alabaster: #EBE9E1;
+    --grid-padding: 0;
 
     font-family: 'Work Sans', sans-serif;
     margin: 0;
@@ -132,6 +133,7 @@ section {
     text-align: center;
     margin: auto;
     width: 80%;
+    max-width: 900px;
 
 }
 
@@ -178,26 +180,30 @@ iframe {
     border: none;
 }
 .directory-div {
+    margin: 3rem 0;
+    border: 1px solid;
+    padding: .5rem 0;
     margin-bottom: 0px;
-    padding-bottom: 0px;
 }
 
 
 .directory-div h2 {
     margin-top: 20px;
-    margin-bottom: 0px;
+    margin-bottom: 20px;
     text-align: center;
     font-size: 1.7em;
     text-transform: uppercase;
+    font-weight: 400;
 }
 .directory-category {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 20px; /* Adjust the gap between elements as needed */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 5px 20px; /* Adjust the gap between elements as needed */
     /* background-color: var(--maize); */
     margin: 10px;
     color: var(--cerise-pink);
     justify-content: center;
+    /* padding: 0px 0px; */
 }
 
 
@@ -356,13 +362,13 @@ button:hover {
 
 @media screen and (max-width: 800px) {
     .directory-category {
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     }
 }
 
 @media screen and (max-width: 576px) {
     .directory-category {
-        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     }
     .employee-card {
         font-size: small;
@@ -386,7 +392,7 @@ button:hover {
     }
 
     .directory-div h2{
-        font-size: calc(1em + .6vw);
+        font-size: 1.2em;
     }
 
     .content {
