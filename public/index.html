@@ -9,29 +9,20 @@
 </head>
 <body>
 
-    <!-- <header>
-        <h1>Santa Quesa High School</h1>
-    </header> -->
-
-    <!-- Include the navigation menu -->
  
     <header>
+        <!-- navbar goes here -->
         <div id="navigation-container"></div>
     </header>
+
+    <!-- page content goes here -->
     <div class="content" id="index-content">
     </div>
    
-    <!-- <section class="page-title">
-        <div id="school-logo">
-            <img src="assets/graphics/SQLogo_Red.png">
-        </div>
-        <p>Welcome to Santa Quesa High School's website!</p>
-    </section> -->
-
-    <!-- <footer>
-        <p>&copy; 2024 Santa Quesa High School</p>
-    </footer> -->
+    <!-- load the navbar generation script -->
     <script src="loadNav.js" type="module"></script>
+
+    <!-- load the content for the page after the navbar -->
     <script>
         document.addEventListener('DOMContentLoaded', function (){
             fetch('/index-content.html')

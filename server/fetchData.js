@@ -13,7 +13,6 @@ function fetchDataFromDatabase(tableName) {
     const query = `SELECT * FROM ${tableName}`
 
     return new Promise((resolve, reject) => {
-        // Replace 'your_table' with the actual name of your table
         db.all(query, [], (err, rows) => {
             db.close();
 

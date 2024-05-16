@@ -38,14 +38,9 @@ const isAuthenticated = (req, res, next) => {
 };
 
 
-
 app.use('/protected', isAuthenticated, express.static(protectedFolderPath));
 
 app.use(express.static(publicFolderPath));
-
-const validUsername = 'les';
-const validPassword = 'claypool';
-
 
 
 // SQLite database setup
@@ -74,7 +69,7 @@ app.post('/login', async (req, res) => {
       return res.status(401).json({ error: 'User does not exist' });
     }
     const hashedPassword = row.HashedPassword;
-    // Compare hashed password with the entered password
+    // Step 2: Compare hashed password with the entered password
     bcrypt.compare(password, hashedPassword, (err, result) => {
       if (err) {
           console.error('Error:', err.message);
@@ -152,7 +147,7 @@ app.post('/login_old', async (req, res) => {
   });
 });
 
-// Example of exposing an endpoint to fetch session data
+// get the user's role and userID
 app.get('/session', (req, res) => {
   res.json({ 
     role: req.session.role,
@@ -160,6 +155,7 @@ app.get('/session', (req, res) => {
   }); // Send session data to client
 });
 
+// only navigate to the protected folder if user is authenticated
 app.get('/protected/mysantaquesa.html', isAuthenticated, (req, res) => {
   res.sendFile(path.join(protectedFolderPath, 'mysantaquesa.html'));
 });
@@ -176,7 +172,7 @@ app.get('/check-auth', (req, res) => {
 });
 
 
-  // API endpoint to fetch column names for a specific table
+// API endpoint to fetch column names for a specific table
 app.get('/api/columns', (req, res) => {
     const tableName = req.query.table;
     const columnList = req.query.columnList;
@@ -195,7 +191,8 @@ app.get('/api/columns', (req, res) => {
     });
   });
   
-  // Endpoint to handle data requests
+// Endpoint to handle data requests. 
+// Takes a list of column names, returns those columns for all rows.
 app.get('/api/data', (req, res) => {
     const tableName = req.query.table;
     const columnList = req.query.columnList;
@@ -218,11 +215,12 @@ app.get('/api/data', (req, res) => {
     });
   });
 
+  // Endpoint to fetch one row from a data table
 app.get('/api/dataRow', (req, res) => {
-    const tableName = req.query.table;
-    const columnList = req.query.columnList;
-    const searchKey = req.query.searchKey;
-    const searchValue = req.query.searchValue;
+    const tableName = req.query.table; // name of the table to search
+    const columnList = req.query.columnList; // list of columns to retrieve
+    const searchKey = req.query.searchKey; // name of column to search, i.e. UserID
+    const searchValue = req.query.searchValue; // value to search for in the Key column
   
     if (!tableName) {
       return res.status(400).json({ error: 'Table name not provided.' });
@@ -240,11 +238,12 @@ app.get('/api/dataRow', (req, res) => {
     });
   });
 
+  // Endpoint for retrieving data from multiple rows of a data table
 app.get('/api/dataRows', (req, res) => {
-    const tableName = req.query.table;
-    const columnList = req.query.columnList;
-    const searchKey = req.query.searchKey;
-    let searchValues = req.query.searchValues;
+    const tableName = req.query.table; // name of table
+    const columnList = req.query.columnList; // list of columns to retrieve
+    const searchKey = req.query.searchKey; // name of column to search, i.e. UserID
+    let searchValues = req.query.searchValues; // values to search for in Key column, i.e. a list of UserIds
     console.log('searchValues = ',searchValues, Array.isArray(searchValues));
     if (!Array.isArray(searchValues)) {
       // Assuming studentIDs is provided as a comma-separated string
@@ -256,9 +255,9 @@ app.get('/api/dataRows', (req, res) => {
     if (!tableName) {
       return res.status(400).json({ error: 'Table name not provided.' });
     }
-    console.log(columnList);
-    console.log(tableName);
-    console.log(searchKey);
+    // console.log(columnList);
+    // console.log(tableName);
+    // console.log(searchKey);
   
     // Query the database based on the provided table name
     const query = `SELECT ${columnList} FROM ${tableName} WHERE ${searchKey} IN (${placeholders})`;
@@ -274,8 +273,9 @@ app.get('/api/dataRows', (req, res) => {
     });
   });
 
+  // Endpoint to get all the grades of a specified student
 app.get('/api/gradeList', (req, res) => {
-  const userID = req.query.userID;
+  const userID = req.query.userID; // student's UserID
   const query = `SELECT FirstName, LastName, ClassesAndGrades FROM Student_Data WHERE StudentID = ?`;
   db.get(query, [userID], (err, row) => {
     if (err) {
@@ -286,6 +286,7 @@ app.get('/api/gradeList', (req, res) => {
   })
 })
 
+// Endpoint to search the EmployeeData table to find the Subject of a class using a given Classcode
 app.get('/api/subjectFromClassCode', (req, res) => {
   const classCode = req.query.classCode;
   console.log('Accessing ClassCode: ',classCode);
@@ -299,6 +300,7 @@ app.get('/api/subjectFromClassCode', (req, res) => {
   }) 
 });
 
+// Endpoint to return the ClassCode for a given EmployeeID
 app.get('/api/classCode', (req, res) => {
     const userID = req.query.userID;
     
@@ -312,6 +314,7 @@ app.get('/api/classCode', (req, res) => {
     })
 });
 
+// Endpoint to return a list of studentIDs that are enrolled in a given CourseID
 app.get('/api/classRoster', (req, res) => {
   const classCode = req.query.classCode;
   const query = 'SELECT Students FROM Class_Rosters WHERE CourseID = ? ';
@@ -324,21 +327,8 @@ app.get('/api/classRoster', (req, res) => {
   })
 });
 
-  // Restricted route
-// app.get('/mysantaquesa', (req, res) => {
-//   // Check if the user is authenticated
-//   if (req.session.authenticated) {
-//     res.sendFile(__dirname + '/mysantaquesa.html');
-//   } else {
-//     res.redirect('/login');  // Redirect to login if not authenticated
-//   }
-// });
 
-// app.get('/mysantaquesa', isAuthenticated, (req, res) => {
-//   res.sendFile(path.join(__dirname, 'mysantaquesa.html'));
-// });
-
-
+// endpoint to logout user from database and authentication
 app.get('/logout', (req, res) => {
   req.session.destroy((err) => {
     if (err) {
@@ -348,16 +338,6 @@ app.get('/logout', (req, res) => {
   });
 });
 
-
-
-
-// Middleware to check authentication
-// function isAuthenticated (req, res, next) {
-//   if (req.session && req.session.authenticated) {
-//     return next();
-//   }
-//   res.redirect('/login.html'); // Redirect to login page if not authenticated
-// };
 
 
 app.listen(port, () => {
