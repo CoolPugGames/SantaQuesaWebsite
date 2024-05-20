@@ -34,8 +34,10 @@ body {
     font-family: 'Work Sans', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: var(--alabaster); /* Set your desired background color */
-    color: var(--cinnabar); /* Set your desired text color */
+    background-color: var(--alabaster);
+    /* Set your desired background color */
+    color: var(--cinnabar);
+    /* Set your desired text color */
 }
 
 h1 {
@@ -50,7 +52,7 @@ h2 {
     font-size: 2em;
 }
 
-h3{
+h3 {
     font-size: calc(1rem + .3vw);
 }
 
@@ -75,7 +77,8 @@ nav {
     text-align: center;
     position: relative;
     margin: 0;
-    transition: top 0.3s; /* Add smooth transition effect */
+    transition: top 0.3s;
+    /* Add smooth transition effect */
     font-family: 'Work Sans';
 }
 
@@ -85,13 +88,15 @@ nav {
     left: 0;
     width: 100%;
     padding: 10px;
-    z-index: 1000; /* Adjust the z-index as needed to ensure it appears above other elements */
+    z-index: 1000;
+    /* Adjust the z-index as needed to ensure it appears above other elements */
 }
 
 nav a {
     /* margin: 0 10px; */
     text-decoration: none;
-    color: var(--cinnabar); /* Set your desired link color */
+    color: var(--cinnabar);
+    /* Set your desired link color */
     text-transform: uppercase;
     padding: 4px 10px;
 }
@@ -105,19 +110,21 @@ nav a:hover {
     color: var(--cinnabar);
     padding: 0px;
 }
-.navbar-dark .navbar-nav .nav-link{
+
+.navbar-dark .navbar-nav .nav-link {
     color: var(--cinnabar);
 }
 
-.navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hover {
+.navbar-dark .navbar-nav .nav-link:focus,
+.navbar-dark .navbar-nav .nav-link:hover {
     color: var(--cinnabar-shadow);
 }
 
-.navbar-nav{
+.navbar-nav {
     margin: auto;
 }
 
-.nav-item{
+.nav-item {
     width: max-content;
 }
 
@@ -137,7 +144,7 @@ section {
 
 }
 
-.page-title{
+.page-title {
     border-bottom: 1px solid;
     border-color: var(--cinnabar-dark);
     margin-bottom: 10px;
@@ -149,20 +156,23 @@ section {
     margin: auto;
 }
 
-#secure-database{
+#secure-database {
     color: var(--maize-light);
 }
 
 footer {
-    background-color: var(--rose); /* Set your desired footer background color */
+    background-color: var(--rose);
+    /* Set your desired footer background color */
     padding: 10px;
     text-align: center;
     color: var(--alabaster);
 }
 
 .login-button {
-    background-color: #f90; /* Set your desired login button background color */
-    color: #333; /* Set your desired login button text color */
+    background-color: #f90;
+    /* Set your desired login button background color */
+    color: #333;
+    /* Set your desired login button text color */
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -170,15 +180,17 @@ footer {
 }
 
 .login-button:hover {
-    background-color: #ffcc00; /* Set your desired hover background color */
+    background-color: #ffcc00;
+    /* Set your desired hover background color */
 }
 
 /* Style for the iframe */
 iframe {
     width: 100%;
-    height: 100px; 
+    height: 100px;
     border: none;
 }
+
 .directory-div {
     margin: 3rem 0;
     border: 1px solid;
@@ -195,10 +207,12 @@ iframe {
     text-transform: uppercase;
     font-weight: 400;
 }
+
 .directory-category {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 5px 20px; /* Adjust the gap between elements as needed */
+    gap: 5px 20px;
+    /* Adjust the gap between elements as needed */
     /* background-color: var(--maize); */
     margin: 10px;
     color: var(--cerise-pink);
@@ -226,7 +240,7 @@ iframe {
 }
 
 .employee-card img {
-    width:100%;
+    width: 100%;
     height: auto;
     display: block;
     margin: 0 auto;
@@ -243,11 +257,12 @@ article {
 
 }
 
-article h1{
+article h1 {
     color: var(--maize);
 }
 
-#school-logo, #school-logo-small {
+#school-logo,
+#school-logo-small {
     width: 100%;
     margin: 10px auto;
 
@@ -255,14 +270,15 @@ article h1{
     /* background-color: var(--cerise-pink); */
 }
 
-#school-logo img{
+#school-logo img {
     width: 80%;
     padding: 20px;
 }
-#school-logo-small img{
+
+#school-logo-small img {
     width: 20%;
     max-width: 200px;
-    padding:10px;
+    padding: 10px;
     display: block;
     margin: auto;
 }
@@ -271,11 +287,12 @@ table {
     width: 80%;
     margin: 20px auto;
     border-collapse: collapse;
-    color:var(--cinnabar-dark);
+    color: var(--cinnabar-dark);
     background-color: var(--maize-pale);
 }
 
-th, td {
+th,
+td {
     padding: 4px 10px;
     border: 1px solid var(--maize-light);
 }
@@ -337,10 +354,11 @@ td {
     border-radius: 4px;
     cursor: pointer;
 }
+
 #db-buttons {
     justify-content: center;
     width: fit-content;
-    margin:auto;
+    margin: auto;
     margin-bottom: 20px;
 }
 
@@ -370,6 +388,7 @@ button:hover {
     .directory-category {
         grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     }
+
     .employee-card {
         font-size: small;
     }
@@ -385,27 +404,30 @@ button:hover {
         font-size: 1em;
     }
 
-    h2{
+    h2 {
         font-size: calc(1em + .7vw);
         font-weight: 300;
         color: var(--cinnabar-dark);
     }
 
-    .directory-div h2{
+    .directory-div h2 {
         font-size: 1.2em;
     }
 
     .content {
         padding-top: 4rem;
     }
-    .navbar-nav .nav-link{
+
+    .navbar-nav .nav-link {
         padding: 1rem .5rem;
     }
-        
+
 }
 
 @media (min-width: 576px) {
-    .container, .container-sm {
+
+    .container,
+    .container-sm {
         max-width: 100%;
     }
 }
