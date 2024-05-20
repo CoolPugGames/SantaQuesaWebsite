@@ -2,6 +2,8 @@
 
 // const { response } = require("express");
 
+// Waits for page to load, then inserts 'nav.html' into the 'navigation-container' element.
+
 document.addEventListener('DOMContentLoaded', function () {
     // Fetch and insert the navigation content
     fetch('/nav.html')
@@ -12,22 +14,4 @@ document.addEventListener('DOMContentLoaded', function () {
         .catch(error => console.error('Error fetching navigation:', error));
 
 });
-
-
-
-
-
-
-
-// window.onscroll = function() { scrollFunction(); };
-
-// function scrollFunction() {
-//     var nav = document.getElementById("mainNav");
-
-//     if (document.body.scrollTop > 90 || document.documentElement.scrollTop > 90) {
-//         nav.classList.add("nav-fixed");
-//     } else {
-//         nav.classList.remove("nav-fixed");
-//     }
-// }
 

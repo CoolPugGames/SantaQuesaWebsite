@@ -1,28 +1,6 @@
-// // login.js
-// async function authenticateUser() {
-//     document.getElementById('login-form').addEventListener('submit', async (event) => {
-//         event.preventDefault();
-//         console.log('attempting login...');
-//         const username = document.getElementById('username').value;
-//         const password = document.getElementById('password').value;
+// login.js
 
-//         // Make a request to the server for authentication
-//         const response = await fetch('/login', {
-//             method: 'POST',
-//             headers: {
-//                 'Content-Type': 'application/json',
-//             },
-//             body: JSON.stringify({ username, password }),
-//         });
-//         const result = await response.json();
-//         console.log(result)
-//         if (response.ok) {
-//             window.location.href = '../protected/mysantaquesa.html';  // Redirect on successful login
-//         } else {
-//             alert('Invalid username or password');
-//         }
-//     })
-// }
+// Controls logic for authenticating a user.
 
 async function authenticateUser() {
     document.getElementById('login-form').addEventListener('submit', async (event) => {

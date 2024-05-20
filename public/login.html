@@ -11,40 +11,44 @@
 <body>
 
     <header>
+        <!-- navbar goes here -->
         <div id="navigation-container"></div>
     </header>
     <div class="content"> 
-    <section class="page-title">
         <!-- Content of the main page goes here -->
-        <h2>Login</h2>
-    </section>
+        <section class="page-title">
+            
+            <h2>Login</h2>
+        </section>
 
-    <div class="login-container">
-        <h2>Santa Quesa High School</h2>
-        <!-- <form class="login-form" onsubmit="attemptLogin(event)"> -->
-        <form class="login-form" id="login-form">
+        <div class="login-container">
+            <h2>Santa Quesa High School</h2>
+            <form class="login-form" id="login-form">
 
-            <div class="form-group">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <div class="form-group">
-                <button type="submit" onclick="authenticateUser()">Login</button>
-            </div>
-        </form>
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit" onclick="authenticateUser()">Login</button>
+                </div>
+            </form>
+            <h4>Hints</h4>
+            <p>Try these username/password combos to see the database in action:</p>
+            <p>ken/justken (teacher)</p>
+            <p>bob/bob (student)</p>
+            <p>okla/homa (admin)</p>
+        </div>
     </div>
-</div>
-
-
-
 
     <footer>
         <p>&copy; 2024 Santa Quesa High School</p>
     </footer>
+
     <script src="loadNav.js"></script>
     <script src="login.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
